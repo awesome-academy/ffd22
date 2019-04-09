@@ -24,7 +24,7 @@
           <%= link_to t(".products"), products_path, class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
-          <% if current_user.admin? %>
+          <% if can? :manage, Category %>
             <li class="nav-item">
               <%= link_to t(".categories"), categories_path,
                 class: "nav-link" %>
@@ -35,7 +35,8 @@
             </li>
 
             <li class="nav-item">
-              <%= link_to t(".suggestions"), suggestions_path, class: "nav-link" %>
+              <%= link_to t(".suggestions"),
+                suggestions_path, class: "nav-link" %>
             </li>
 
             <li class="nav-item">
@@ -43,7 +44,8 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to t(".suggestions"), new_suggestion_path, class: "nav-link" %>
+              <%= link_to t(".suggestions"),
+                new_suggestion_path, class: "nav-link" %>
             </li>
           <% end %>
 
@@ -57,17 +59,21 @@
                 current_user %></li>
               <li class="dropdown-item"><%= link_to t(".settings"),
                 edit_user_registration_path %></li>
-              <li class="dropdown-item"><%= link_to t(".my_order"),
-                orders_path %></li>
+              <% if current_user.normal_user? %>
+                <li class="dropdown-item"><%= link_to t(".my_order"),
+                  orders_path %></li>
+              <% end %>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
-                <%= link_to t(".log_out"), destroy_user_session_path, method: :delete %>
+                <%= link_to t(".log_out"),
+                  destroy_user_session_path, method: :delete %>
               </li>
             </ul>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to t(".log_in"), new_user_session_path, class: "nav-link" %>
+            <%= link_to t(".log_in"), new_user_session_path,
+              class: "nav-link" %>
           </li>
         <% end %>
       </ul>

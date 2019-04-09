@@ -7,10 +7,12 @@
   <% comments.each do |comment| %>
     <div class="comment_<%= comment.id %>">
 
-    <% if current_user.present? && current_user.id == comment.user_id %>
+      <% if can? :destroy, comment %>
         <%= button_to t(".delete"), comment, method: :delete, remote: true,
           data: {confirm: t(".confirm")},
           class: "float-right btn btn-outline-danger btn-sm" %>
+      <% end %>
+      <% if can? :update, comment %>
         <%= button_to t(".edit"), edit_comment_path(comment), remote: true,
           class: "float-right btn btn-outline-primary btn-sm" %>
       <% end %>

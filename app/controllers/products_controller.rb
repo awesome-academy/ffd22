@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :logged_in_user, :admin_user,
+  before_action :authenticate_user!,
     only: %i(new create edit update destroy)
   before_action :load_product, except: %i(create new index)
   before_action :load_list_products, only: :index
+  authorize_resource
 
   def show
     @comment = Comment.new

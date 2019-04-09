@@ -209,6 +209,7 @@ en:
       your_cart_blank: "Your cart is blank"
       enter_another_quantity: "Please enter another quantity"
       you_have_no_order: "You have no order"
+      you_cant_cancel: "You can't cancel order which status is approved"
   controllers:
     products:
       product_not_found: "Product not found"
@@ -293,7 +294,7 @@ en:
       drink: "Drink"
       write_message: "Write a message..."
     create:
-      message: "Thank you for suggestion!"
+      message: "Thank you for your suggestion!"
     show:
       title: "Suggestion"
       delete: "Delete"

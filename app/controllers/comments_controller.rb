@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :load_comment, only: %i(edit update destroy)
   before_action :load_comment_product, only: %i(update destroy)
-  before_action :logged_in_user, only: :create
+  before_action :authenticate_user!, only: :create
 
   def create
     @comment = Comment.new comment_params
@@ -56,5 +56,14 @@ class CommentsController < ApplicationController
   def load_comment_product
     @comment_product = Comment.includes(:product).find_comments(@comment)
                               .order_comments
+  end
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to new_user_session_path,
+        alert: t("devise.failure.unauthenticated")
+    end
   end
 end
