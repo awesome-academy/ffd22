@@ -33,7 +33,8 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    authorize! :destroy, @order, message: t("orders.controllers.you_cant_cancel")
+    authorize! :destroy, @order,
+      message: t("orders.controllers.you_cant_cancel")
     if (@order.user_id == current_user.id || admin_user?) && @order.destroy
       flash[:success] = t "orders.controllers.order_deleted"
     else

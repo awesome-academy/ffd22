@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   authorize_resource
 
   def index
-    @users = User.paginate page: params[:page], per_page: Settings.per_page
+    @search = User.ransack params[:q]
+    @users = @search.result.paginate page: params[:page],
+      per_page: Settings.per_page.users
   end
 
   def show; end
