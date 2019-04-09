@@ -23,8 +23,9 @@ product_quantity:
 per_page: 15
 per_page:
   products: 12
+  orders: 10
 carts:
-  minimum_quantity: 1
+  minimum_quantity: 0
   default_quantity: 1
   no_product: 0
 filter:
