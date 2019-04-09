@@ -1,11 +1,11 @@
 @import 'bootstrap';
 
-$soft_peach = #f2dede;
-$pale_rose = #eed3d7;
-$chestnut = #b94a48;
-$hint_of_green = #dff0d8;
-$frostee = #d6e9c6;
-$killarney = #468847;
+$soft_peach: #f2dede;
+$pale_rose: #eed3d7;
+$chestnut: #b94a48;
+$hint_of_green: #dff0d8;
+$frostee: #d6e9c6;
+$killarney: #468847;
 
 /* universal */
 body {
@@ -120,3 +120,25 @@ footer ul li {
     color: $killarney;
     text-align: left;
  }
+/* Rating */
+.starrating > input {display: none;}  /* Remove radio buttons */
+
+.starrating > label:before {
+  content: "★"; /* Star */
+  margin: 2px;
+  font-size: 3em;
+  font-family: FontAwesome;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.starrating > label
+{
+  color: gray; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label
+{ color: gold; } /* Set yellow color when star checked */
+
+.starrating > input:hover ~ label
+{ color: gold;  } /* Set yellow color when star hover */

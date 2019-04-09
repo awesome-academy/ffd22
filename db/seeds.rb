@@ -58,15 +58,27 @@ Category.create!(
 )
 
 # Product Seed
-12.times do
+20.times do
   Product.create!(
     name: Faker::Lorem.sentence(5),
     price: Faker::Number.between(10, 900),
     information: Faker::Lorem.paragraph(5),
-    image: Rails.root.join("app/assets/images/1.jpg").open,
+    image: Rails.root.join("app/assets/images/fast-food.png").open,
     classify: true,
     quantity: Faker::Number.between(1, 90),
     category_id: 1
+  )
+end
+
+3.times do
+  Product.create!(
+    name: Faker::Lorem.sentence(5),
+    price: Faker::Number.between(10, 900),
+    information: Faker::Lorem.paragraph(5),
+    image: Rails.root.join("app/assets/images/noodles.png").open,
+    classify: true,
+    quantity: Faker::Number.between(1, 90),
+    category_id: 3
   )
 end
 
@@ -75,9 +87,40 @@ end
     name: Faker::Lorem.sentence(5),
     price: Faker::Number.between(10, 900),
     information: Faker::Lorem.paragraph(5),
-    image: Rails.root.join("app/assets/images/1.jpg").open,
+    image: Rails.root.join("app/assets/images/bread.jpg").open,
     classify: false,
     quantity: Faker::Number.between(1, 90),
     category_id: 2
+  )
+end
+
+6.times do
+  Product.create!(
+    name: Faker::Lorem.sentence(5),
+    price: Faker::Number.between(10, 900),
+    information: Faker::Lorem.paragraph(5),
+    image: Rails.root.join("app/assets/images/1.jpg").open,
+    classify: false,
+    quantity: Faker::Number.between(1, 90),
+    category_id: 4
+  )
+end
+
+#Comment seed
+3.times do
+  Comment.create!(
+    content: Faker::Lorem.sentence(5),
+    rating: Faker::Number.between(1, 5),
+    user_id: 1,
+    product_id: 1
+  )
+end
+
+3.times do
+  Comment.create!(
+    content: Faker::Lorem.sentence(5),
+    rating: Faker::Number.between(1, 5),
+    user_id: 2,
+    product_id: 2
   )
 end

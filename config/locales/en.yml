@@ -16,6 +16,7 @@ en:
   delete: "Delete"
   you_sure: "You sure?"
   cart: "Cart"
+  filter: "Filter"
   static_pages:
     home:
       title: "Home"
@@ -37,10 +38,13 @@ en:
       categories: "Categories"
       log_in: "Log in"
       users: "Users"
+      orders: "Orders"
       account: "Account"
       profile: "Profile"
+      my_order: "My Order"
       settings: "Settings"
       log_out: "Log out"
+      suggestions: "Suggestions"
     footer:
       about: "About"
       contact: "Contact"
@@ -142,6 +146,13 @@ en:
   products:
     show:
       quantity: "Quantity"
+      product_reviews: "Product Reviews"
+      no_comment: "This product has no comments."
+      product:
+        one: "1 Product"
+        other: "%{count} Products"
+      one: "1 star"
+      other: "%{count} stars"
     new:
       create_product: "Create Product"
       name: "Name"
@@ -155,6 +166,12 @@ en:
       edit_product: "Edit Product"
     index:
       heading: "Products"
+      choose_classify: "Choose Classify"
+      choose_category: "Choose Category"
+      min: "Minimum"
+      max: "Maximum"
+      no_product: "There are no products"
+      categories: "Categories"
     update:
       product_updated: "Product updated"
     destroy:
@@ -162,6 +179,8 @@ en:
       product_delete_failed: "Delete product failed"
     product:
       add_to_cart: "Add to Cart"
+      one: "1 star"
+      other: "%{count} stars"
   application:
     logged_in_user:
       please_log_in: "Please log in."
@@ -171,8 +190,25 @@ en:
       no_item: "There are no items in your shopping cart."
     shopping_cart:
       total: "Total: "
+      order: "Order"
     cart_product:
       you_sure: "Are you sure?"
+  orders:
+    show:
+      my_order: "My order: "
+      total: "Total: "
+      cancel_order: "Cancel Order"
+    index:
+      title: "My Orders"
+      no_order: "No Order"
+    controllers:
+      order_not_found: "This order not found"
+      order_deleted: "Order Deleted"
+      can_not_delete: "Can not delete"
+      order_created: "Order Created"
+      your_cart_blank: "Your cart is blank"
+      enter_another_quantity: "Please enter another quantity"
+      you_have_no_order: "You have no order"
   controllers:
     products:
       product_not_found: "Product not found"
@@ -190,6 +226,7 @@ en:
         please_log_in: "Please log in."
     carts:
       have_error: "Have error. Try again!"
+      product_not_found: "Product not found"
   categories:
     new:
       title: "Categories"
@@ -199,6 +236,8 @@ en:
       title: "Categories"
       heading: "Categories"
       add: "Add"
+    show:
+      products: "Products"
     category:
       add: "Add"
       edit: "Edit"
@@ -220,3 +259,56 @@ en:
     destroy:
       destroy_success: "Category deleted"
       destroy_failed: "Delete failed"
+  time:
+    formats:
+      created_at: "%d-%m-%Y"
+  comments:
+    form:
+      write_comment: "write comment..."
+      comment_label_html: "<span>&nbsp;</span>"
+      add_comment: "Add Comment"
+    comment:
+      product_reviews: "Product Reviews"
+      confirm: "You sure?"
+      posted_by: "Posted by"
+      "on": "on"
+      delete: "Delete"
+      edit: "Edit"
+      one: "1 comment"
+      other: "%{count} comments"
+    form_edit:
+      comment_label_html: "<span>&nbsp;</span>"
+      save_changes: "Save Changes"
+    destroy:
+      delete_failed: "Delete failed"
+  suggestions:
+    new:
+      title: "New Suggestion"
+      heading: "New Suggestion"
+      add_suggestion: "Add Suggestion"
+    form:
+      p: "You can suggest more foods or drinks to admin"
+      name: "Name"
+      food: "Food"
+      drink: "Drink"
+      write_message: "Write a message..."
+    create:
+      message: "Thank you for suggestion!"
+    show:
+      title: "Suggestion"
+      delete: "Delete"
+      confirm: "You sure?"
+      name: "Name"
+      classify: "Classify"
+      message: "Message"
+      suggestion_from: "Suggestion from "
+      food: "Food"
+      drink: "Drink"
+    load_suggestion:
+      suggestion_not_found: "Suggestion not found"
+    destroy:
+      destroy_success: "Destroy Success"
+      destroy_failed: "Destroy Failed"
+    index:
+      title: "Suggestions"
+      heading: "Suggestions"
