@@ -4,14 +4,17 @@ class ProductsController < ApplicationController
   before_action :load_product, except: %i(create new index)
   before_action :load_list_products, only: :index
 
-  def show; end
-
   def index
     flash.now[:danger] = t ".no_product" if @products.blank?
   end
 
   def new
     @product = Product.new
+  end
+
+  def show
+    @comment = Comment.new
+    @comments = @product.comments.order(created_at: :desc)
   end
 
   def create
@@ -71,8 +74,10 @@ class ProductsController < ApplicationController
 
   def filter_params
     filter_params = params.permit(:classify, :category_id).to_h
-    price = params[:price].split("..")
-    filter_params[:price] = price[0]..price[1]
+    if params[:price].present?
+      price = params[:price].split("..")
+      filter_params[:price] = price[0]..price[1]
+    end
     filter_params.reject{|_k, v| v.blank?}
   end
 end

@@ -13,9 +13,11 @@ Rails.application.routes.draw do
     post "carts/create"
     delete "carts/destroy"
     post "carts/update"
+    post "comments/:id/edit", to: "comments#edit", as: "edit_comment"
 
     resources :users, :products, :categories
     resources :account_activations, only: :edit
     resources :password_resets, except: %i(index destroy show)
+    resources :comments, only: %i(create update destroy)
   end
 end
