@@ -79,6 +79,12 @@ en:
     show:
       email: "Email:"
       phone: "Phone:"
+    user:
+      delete: "delete"
+      confirm: "You sure?"
+    destroy:
+      user_deleted: "User deleted"
+      delele_failed: "Delete failed"
   shared:
     error_messages:
       form_contains: "The form contains "

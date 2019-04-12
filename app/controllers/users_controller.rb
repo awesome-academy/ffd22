@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: %i(show edit update)
-  before_action :logged_in_user, only: %i(index edit update)
+  before_action :load_user, except: %i(index new create)
+  before_action :logged_in_user, except: %i(show create new)
   before_action :correct_user, only: %i(edit update)
+  before_action :admin_user, only: :destroy
 
   def index
     @users = User.paginate page: params[:page], per_page: Settings.per_page
@@ -28,11 +29,20 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = t ".update.profile_updated"
+      flash[:success] = t ".profile_updated"
       redirect_to @user
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @user.destroy
+      flash[:success] = t ".user_deleted"
+    else
+      flash[:danger] = t ".delele_failed"
+    end
+    redirect_to :users
   end
 
   private
@@ -58,5 +68,9 @@ class UsersController < ApplicationController
 
   def correct_user
     redirect_to root_path unless current_user? @user
+  end
+
+  def admin_user
+    redirect_to root_path unless current_user.role?
   end
 end
