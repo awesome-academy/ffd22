@@ -17,6 +17,8 @@ en:
       title: "Home"
     help:
       title: "Help"
+    categories:
+      title: "Categories"
     about:
       title: "About"
     contact:
@@ -24,14 +26,8 @@ en:
   layouts:
     header:
       home: "Home"
-      help: "Help"
+      categories: "Categories"
       log_in: "Log in"
-      users: "Users"
-      account: "Account"
-    footer:
-      about: "About"
-      contact: "Contact"
-      help: "Help"
       users: "Users"
       account: "Account"
       profile: "Profile"
@@ -79,6 +75,12 @@ en:
     show:
       email: "Email:"
       phone: "Phone:"
+    user:
+      delete: "delete"
+      confirm: "You sure?"
+    destroy:
+      user_deleted: "User deleted"
+      delele_failed: "Delete failed"
   shared:
     error_messages:
       form_contains: "The form contains "
@@ -143,3 +145,36 @@ en:
       user_not_found: "User not found for activate"
     password_reset:
       user_not_found: "User not found for reset password"
+    application:
+      logged_in_user:
+        please_log_in: "Please log in."
+  categories:
+    new:
+      title: "Categories"
+      heading: "New Category"
+      create: "Create"
+    index:
+      title: "Categories"
+      heading: "Categories"
+      add: "Add"
+    category:
+      add: "Add"
+      edit: "Edit"
+      delete: "Delete"
+      confirm: "You sure?"
+    edit:
+      title: "Edit Category"
+      heading: "Edit Category"
+      save_changes: "Save changes"
+    form:
+      name: "Name"
+      parent_category: "Parent Category"
+    create:
+      create_category: "Create category success"
+    update:
+      category_updated: "Category updated"
+    load_category:
+      category_not_found: "Category not found"
+    destroy:
+      destroy_success: "Category deleted"
+      destroy_failed: "Delete failed"

@@ -1,0 +1,6 @@
+address: "smtp.gmail.com"
+port: "587"
+authentication: "plain"
+user_name: "dragonballlegend0111@gmail.com"
+password: "son_goku"
+enable_starttls_auto: "true"

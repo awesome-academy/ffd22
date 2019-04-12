@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_061632) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "parent_id"
+    t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_061632) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.boolean "role"
+    t.boolean "role", default: false
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

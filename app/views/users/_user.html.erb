@@ -1,3 +1,7 @@
 <li>
   <%= link_to user.name, user %>
+  <% if !user.role? && current_user.role? %>
+    | <%= link_to t(".delete"), user, method: :delete,
+      data: { confirm: t(".confirm") } %>
+  <% end %>
 </li>

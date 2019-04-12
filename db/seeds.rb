@@ -38,12 +38,23 @@ end
 
 # Category Seed
 Category.create!(
-  name: "Category 1",
+  name: "Fast Food",
+  parent_id: nil
 )
 
 Category.create!(
-  name: "Category 2",
-  parent_id: 1
+  name: "Bread",
+  parent_id: nil
+)
+
+Category.create!(
+  name: "Noodles",
+  parent_id: nil
+)
+
+Category.create!(
+  name: "Meat",
+  parent_id: nil
 )
 
 # Product Seed
