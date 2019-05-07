@@ -4,11 +4,9 @@ Rails.application.routes.draw do
 
     devise_for :users, controllers: {
       registrations: "users/registrations",
-      sessions: "users/sessions",
       confirmations: "users/confirmations"
     }
 
-    get "static_pages/home"
     get "/carts", to: "carts#show"
     post "carts/create"
     delete "carts/destroy"

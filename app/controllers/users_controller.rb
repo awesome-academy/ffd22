@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :load_user, except: %i(index new create)
-  before_action :authenticate_user!, except: %i(show create new)
+  before_action :load_user, only: %i(show destroy)
+  before_action :authenticate_user!, only: %i(index show destroy)
 
   def index
     @users = User.paginate page: params[:page], per_page: Settings.per_page

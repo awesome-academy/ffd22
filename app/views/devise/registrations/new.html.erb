@@ -1,0 +1,40 @@
+<% provide(:title, t(".sign_up")) %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+  html: {class: "form-user"}) do |f| %>
+  <h1 class="h3 mb-3 font-weight-normal"><%= t ".sign_up" %></h1>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name, t(".name"), class: "sr-only" %>
+    <%= f.text_field :name, class: "form-control",
+      placeholder: t(".name") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, t(".email"), class: "sr-only" %>
+    <%= f.email_field :email, class: "form-control", placeholder: t(".email") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, t(".password"), class: "sr-only" %>
+    <%= f.password_field :password, class: "form-control",
+      placeholder: t(".password") %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %><%= t ".characters_minimum" %> )</em>
+    <% end %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, t(".password_confirmation"),
+      class: "sr-only" %>
+    <%= f.password_field :password_confirmation, class: "form-control",
+      placeholder: t(".password_confirmation") %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t(".sign_up"), class: "btn btn-lg btn-primary btn-block" %>
+  </div>
+  <%= render "devise/shared/links" %>
+<% end %>
+
