@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
   include CartsHelper
   before_action :set_locale
 
@@ -18,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
     store_location
     flash[:danger] = t "controllers.application.logged_in_user.please_log_in"
     redirect_to login_path

@@ -17,7 +17,7 @@
     </div>
     <div class="card-footer">
       <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <% if current_user.admin? %>
           <%= link_to t("edit"), edit_product_path(product),
             class: "btn btn-success btn-sm" %>

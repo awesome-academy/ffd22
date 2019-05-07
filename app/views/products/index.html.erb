@@ -4,7 +4,7 @@
 <div class="col-lg-9">
   <div>
     <%= link_to t("add"), new_product_path,
-      class: "btn btn-success" if logged_in? && current_user.admin? %>
+      class: "btn btn-success" if user_signed_in? && current_user.admin? %>
   </div>
 
   <% if @products.present? %>
