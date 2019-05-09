@@ -148,6 +148,8 @@ en:
       product:
         one: "1 Product"
         other: "%{count} Products"
+      one: "1 star"
+      other: "%{count} stars"
     new:
       create_product: "Create Product"
       name: "Name"
