@@ -16,4 +16,5 @@ class Product < ApplicationRecord
     numericality: {greater_than_or_equal_to: Settings.product_quantity.minimum}
   validates :category_id, presence: true
   scope :order_desc, ->{order created_at: :desc}
+  scope :filter_products, ->(filter_params){where filter_params}
 end
