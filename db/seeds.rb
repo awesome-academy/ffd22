@@ -1,39 +1,39 @@
-User.create!(
+@user = User.new(
   name: "Admin",
   email: "lyld1203@gmail.com",
   password: "123456",
   password_confirmation: "123456",
   role: 1,
   phone: "0123456789",
-  activated: true,
-  activated_at: Time.zone.now
 )
+@user.skip_confirmation!
+@user.save!
 
-User.create!(
+@user = User.new(
   name: "Linh",
   email: "abc@gmail.com",
   password: "asdasd",
   password_confirmation: "asdasd",
   role: 1,
   phone: "02156446846",
-  activated: true,
-  activated_at: Time.zone.now
 )
+@user.skip_confirmation!
+@user.save!
 
-99.times do |n|
+20.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@gmail.com"
   phone = Faker::PhoneNumber.cell_phone
   password = "password"
-  User.create!(
+  @user = User.new(
     name: name,
     email: email,
     role: 2,
     phone: phone,
     password: password,
-    activated: true,
-    activated_at: Time.zone.now
   )
+  @user.skip_confirmation!
+  @user.save!
 end
 
 # Category Seed

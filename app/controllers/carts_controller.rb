@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   before_action :logged_in_user, :load_cart_products,
     except: %i(index new edit)
   before_action :load_item, only: :create
-  before_action :check_item_update , only: :update
+  before_action :check_item_update, only: :update
 
   def create
     @cart_products.merge!(@item)
@@ -63,8 +63,7 @@ class CartsController < ApplicationController
 
   def check_item_available product_id, quantity
     product = Product.find_by(id: product_id)
-    return false if product.blank? || quantity < Settings.carts.minimum_quantity.to_s ||
+    product.blank? || quantity < Settings.carts.minimum_quantity.to_s ||
       product.quantity < quantity.to_i
-    return true
   end
 end

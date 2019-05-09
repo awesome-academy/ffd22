@@ -1,5 +1,12 @@
 @import 'bootstrap';
 
+$soft_peach = #f2dede;
+$pale_rose = #eed3d7;
+$chestnut = #b94a48;
+$hint_of_green = #dff0d8;
+$frostee = #d6e9c6;
+$killarney = #468847;
+
 /* universal */
 body {
   padding-top: 80px;
@@ -8,7 +15,7 @@ body {
 /* forms-signin */
 .form-user {
   width: 100%;
-  max-width: 430px;
+  max-width: 530px;
   padding: 15px;
   margin: auto;
 }
@@ -84,3 +91,32 @@ footer ul li {
     border-bottom: 0.5px solid $gray-200;
   }
 }
+
+/*flash*/
+.alert-error {
+    background-color: $soft_peach;
+    border-color: $pale_rose;
+    color: $chestnut;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: $soft_peach;
+    border-color: $pale_rose;
+    color: $chestnut;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: $hint_of_green;
+    border-color: $frostee;
+    color: $killarney;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: $hint_of_green;
+    border-color: $frostee;
+    color: $killarney;
+    text-align: left;
+ }

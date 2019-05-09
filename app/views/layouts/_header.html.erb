@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <% if logged_in? && !admin_user? %>
+        <% if user_signed_in? && !current_user.admin? %>
           <li class="nav-item">
             <%= link_to carts_path, class: "btn btn-info" do %>
               <%= t "cart" %>
@@ -23,9 +23,8 @@
         <li class="nav-item">
           <%= link_to t(".products"), products_path, class: "nav-link" %>
         </li>
-
-        <% if logged_in? %>
-          <% if admin_user? %>
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
             <li class="nav-item">
               <%= link_to t(".categories"), categories_path,
                 class: "nav-link" %>
@@ -45,16 +44,16 @@
               <li class="dropdown-item"><%= link_to t(".profile"),
                 current_user %></li>
               <li class="dropdown-item"><%= link_to t(".settings"),
-                edit_user_path(current_user) %></li>
+                edit_user_registration_path %></li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
-                <%= link_to t(".log_out"), logout_path, method: :delete %>
+                <%= link_to t(".log_out"), destroy_user_session_path, method: :delete %>
               </li>
             </ul>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to t(".log_in"), login_path, class: "nav-link" %>
+            <%= link_to t(".log_in"), new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
