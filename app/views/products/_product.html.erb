@@ -26,8 +26,10 @@
           <% end %>
           <%= t("products.product",
             count: product.comments.average(:rating).ceil) %>
+          <div class="dropdown-divider"></div>
         <% end %>
       </small>
+
       <% if logged_in? %>
         <% if current_user.admin? %>
           <%= link_to t("edit"), edit_product_path(product),

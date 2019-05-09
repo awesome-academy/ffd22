@@ -63,9 +63,7 @@ class CartsController < ApplicationController
 
   def check_item_available product_id, quantity
     product = Product.find_by(id: product_id)
-    return false if product.blank? ||
-                    quantity < Settings.carts.minimum_quantity.to_s ||
-                    product.quantity < quantity.to_i
-    true
+    product.present? && quantity > Settings.carts.minimum_quantity.to_s &&
+      product.quantity > quantity.to_i
   end
 end

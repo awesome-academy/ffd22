@@ -106,6 +106,7 @@ end
   )
 end
 
+#Comment seed
 3.times do
   Comment.create!(
     content: Faker::Lorem.sentence(5),

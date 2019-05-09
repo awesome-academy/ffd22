@@ -4,17 +4,17 @@ class ProductsController < ApplicationController
   before_action :load_product, except: %i(create new index)
   before_action :load_list_products, only: :index
 
+  def show
+    @comment = Comment.new
+    @comments = @product.comments.order created_at: :desc
+  end
+
   def index
     flash.now[:danger] = t ".no_product" if @products.blank?
   end
 
   def new
     @product = Product.new
-  end
-
-  def show
-    @comment = Comment.new
-    @comments = @product.comments.order(created_at: :desc)
   end
 
   def create

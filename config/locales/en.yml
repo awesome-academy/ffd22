@@ -38,10 +38,13 @@ en:
       categories: "Categories"
       log_in: "Log in"
       users: "Users"
+      orders: "Orders"
       account: "Account"
       profile: "Profile"
+      my_order: "My Order"
       settings: "Settings"
       log_out: "Log out"
+      suggestions: "Suggestions"
     footer:
       about: "About"
       contact: "Contact"
@@ -168,6 +171,7 @@ en:
       min: "Minimum"
       max: "Maximum"
       no_product: "There are no products"
+      categories: "Categories"
     update:
       product_updated: "Product updated"
     destroy:
@@ -186,8 +190,25 @@ en:
       no_item: "There are no items in your shopping cart."
     shopping_cart:
       total: "Total: "
+      order: "Order"
     cart_product:
       you_sure: "Are you sure?"
+  orders:
+    show:
+      my_order: "My order: "
+      total: "Total: "
+      cancel_order: "Cancel Order"
+    index:
+      title: "My Orders"
+      no_order: "No Order"
+    controllers:
+      order_not_found: "This order not found"
+      order_deleted: "Order Deleted"
+      can_not_delete: "Can not delete"
+      order_created: "Order Created"
+      your_cart_blank: "Your cart is blank"
+      enter_another_quantity: "Please enter another quantity"
+      you_have_no_order: "You have no order"
   controllers:
     products:
       product_not_found: "Product not found"
@@ -206,7 +227,6 @@ en:
     carts:
       have_error: "Have error. Try again!"
       product_not_found: "Product not found"
-      must_greater_1: "Quantity must greater than 1"
   categories:
     new:
       title: "Categories"
@@ -216,6 +236,8 @@ en:
       title: "Categories"
       heading: "Categories"
       add: "Add"
+    show:
+      products: "Products"
     category:
       add: "Add"
       edit: "Edit"
@@ -259,3 +281,34 @@ en:
       save_changes: "Save Changes"
     destroy:
       delete_failed: "Delete failed"
+  suggestions:
+    new:
+      title: "New Suggestion"
+      heading: "New Suggestion"
+      add_suggestion: "Add Suggestion"
+    form:
+      p: "You can suggest more foods or drinks to admin"
+      name: "Name"
+      food: "Food"
+      drink: "Drink"
+      write_message: "Write a message..."
+    create:
+      message: "Thank you for suggestion!"
+    show:
+      title: "Suggestion"
+      delete: "Delete"
+      confirm: "You sure?"
+      name: "Name"
+      classify: "Classify"
+      message: "Message"
+      suggestion_from: "Suggestion from "
+      food: "Food"
+      drink: "Drink"
+    load_suggestion:
+      suggestion_not_found: "Suggestion not found"
+    destroy:
+      destroy_success: "Destroy Success"
+      destroy_failed: "Destroy Failed"
+    index:
+      title: "Suggestions"
+      heading: "Suggestions"

@@ -37,13 +37,17 @@ ActiveRecord::Schema.define(version: 2019_04_11_061632) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "status", default: 0
+    t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -61,10 +65,13 @@ ActiveRecord::Schema.define(version: 2019_04_11_061632) do
   end
 
   create_table "suggestions", force: :cascade do |t|
-    t.integer "user_id"
+    t.string "name"
+    t.boolean "classify"
     t.text "message"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_suggestions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
