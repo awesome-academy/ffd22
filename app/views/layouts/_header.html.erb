@@ -31,8 +31,20 @@
             </li>
 
             <li class="nav-item">
-            <%= link_to t(".users"), users_path, class: "nav-link" %>
-          </li>
+              <%= link_to t(".users"), users_path, class: "nav-link" %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to t(".suggestions"), suggestions_path, class: "nav-link" %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to t(".orders"), orders_path, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to t(".suggestions"), new_suggestion_path, class: "nav-link" %>
+            </li>
           <% end %>
 
           <li class="nav-item dropdown">
@@ -45,6 +57,8 @@
                 current_user %></li>
               <li class="dropdown-item"><%= link_to t(".settings"),
                 edit_user_registration_path %></li>
+              <li class="dropdown-item"><%= link_to t(".my_order"),
+                orders_path %></li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
                 <%= link_to t(".log_out"), destroy_user_session_path, method: :delete %>

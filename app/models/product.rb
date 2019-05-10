@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
+  has_many :comments, dependent: :destroy
   belongs_to :category
+  has_many :order_products, dependent: :destroy
   mount_uploader :image, ImageUploader
   validates :name, presence: true,
     length: {
@@ -16,4 +18,5 @@ class Product < ApplicationRecord
     numericality: {greater_than_or_equal_to: Settings.product_quantity.minimum}
   validates :category_id, presence: true
   scope :order_desc, ->{order created_at: :desc}
+  scope :filter_products, ->(filter_params){where filter_params}
 end

@@ -13,7 +13,7 @@ module CartsHelper
     cart_products.blank? ? Settings.carts.no_product : cart_products.size
   end
 
-  def calculate_total_price cart_products
+  def calculate_total_price
     cart_products.sum do |id, quantity|
       product = find_product id
       product.present? ? product.price.to_i * quantity.to_i : 0
