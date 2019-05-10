@@ -1,0 +1,32 @@
+<% provide(:title, t(".log_in")) %>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name),
+  html: {class: "form-user"}) do |f| %>
+  <h1 class="h3 mb-3 font-weight-normal"><%= t ".log_in" %></h1>
+
+  <div class="field">
+    <%= f.label :email, t(".email"), class: "sr-only" %>
+    <%= f.email_field :email, autofocus: true, class: "form-control",
+      placeholder: t(".email") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, t(".password"), class: "sr-only" %>
+    <%= f.password_field :password, class: "form-control",
+      placeholder: t(".password") %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span><%= t ".remember_me" %></span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit t(".log_in"), class: "btn btn-lg btn-primary btn-block" %>
+  </div>
+  <%= render "devise/shared/links" %>
+<% end %>

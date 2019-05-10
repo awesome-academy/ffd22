@@ -1,0 +1,61 @@
+<% provide(:title, t(".edit_user")) %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+  html: {class: "form-user", method: :put}) do |f| %>
+  <h1 class="h3 mb-3 font-weight-normal"><%= t ".edit" %>
+    <%= resource_name.to_s.humanize %></h1>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name, t(".name"), class: "sr-only" %>
+    <%= f.text_field :name, class: "form-control", placeholder: t(".name") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, t(".email"), class: "sr-only" %>
+    <%= f.email_field :email, class: "form-control", placeholder: t(".email") %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div><%= t ".currently_waiting_confirmation" %>
+      <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password, t(".password"), class: "sr-only" %>
+     <i>(leave blank if you don't want to change it)</i>
+    <%= f.password_field :password, class: "form-control",
+      placeholder: t(".password") %>
+    <% if @minimum_password_length %>
+      <em><%= @minimum_password_length %><%= t ".characters_minimum" %></em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, t(".password_confirmation"),
+      class: "sr-only" %>
+    <%= f.password_field :password_confirmation, class: "form-control",
+      placeholder: t(".password_confirmation") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, t(".current_password"), class: "sr-only"%>
+    <i>(we need your current password to confirm your changes)</i>
+    <%= f.password_field :current_password, class: "form-control",
+      placeholder: t(".current_password") %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t(".submit"), class: "btn btn-lg btn-primary btn-block" %>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <h3><%= t ".cancel_my_account" %></h3>
+  <p><%= t ".unhappy" %>
+    <%= button_to t(".cancel_my_account"), registration_path(resource_name),
+      data: { confirm: "Are you sure?" }, method: :delete,
+      class: "btn btn-primary" %>
+  </p>
+  <%= link_to t(".back"), :back %>
+</div>
