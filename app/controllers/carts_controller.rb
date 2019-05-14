@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   require "json"
-  before_action :logged_in_user, :load_cart_products,
+  before_action :authenticate_user!, :load_cart_products,
     except: %i(index new edit)
   before_action :load_item, only: :create
   before_action :check_item_update, only: :update

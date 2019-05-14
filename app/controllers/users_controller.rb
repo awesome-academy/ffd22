@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(show destroy)
   before_action :authenticate_user!, only: %i(index show destroy)
+  authorize_resource
 
   def index
     @users = User.paginate page: params[:page], per_page: Settings.per_page

@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
-  before_action :logged_in_user, only: %i(index show destroy)
+  before_action :authenticate_user!, only: %i(index show destroy)
   before_action :load_order, only: %i(show update destroy)
   before_action :check_quantity_available, :check_cart_products, only: :create
-  before_action :admin_user, only: %i(update)
   before_action :load_list_orders, only: :index
+  authorize_resource except: :destroy
 
   def show
     if @order.user_id == current_user.id
@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @order, message: t("orders.controllers.you_cant_cancel")
     if (@order.user_id == current_user.id || admin_user?) && @order.destroy
       flash[:success] = t "orders.controllers.order_deleted"
     else
