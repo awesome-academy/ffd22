@@ -148,6 +148,8 @@ en:
       quantity: "Quantity"
       product_reviews: "Product Reviews"
       no_comment: "This product has no comments."
+      food: "Food"
+      drink: "Drink"
       product:
         one: "1 Product"
         other: "%{count} Products"

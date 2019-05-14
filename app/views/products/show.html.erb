@@ -14,6 +14,16 @@
       <span class="badge badge-primary p-2">
         <%= t ".quantity" %>: <%= @product.quantity %>
       </span>
+      <span class="badge badge-primary p-2">
+        <% if @product.classify %>
+          <%= t ".food" %>
+        <% else %>
+          <%= t ".drink" %>
+        <% end %>
+      </span>
+      <span class="badge badge-primary p-2">
+        <%= @product.category.name %>
+      </span>
       <p class="card-text mt-3">
         <%= @product.information %>
       </p>

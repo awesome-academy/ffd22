@@ -20,10 +20,11 @@ product_price:
   minimum: 0
 product_quantity:
   minimum: 0
-per_page: 15
 per_page:
-  products: 12
+  products: 15
   orders: 10
+  users: 15
+  categories: 15
 carts:
   minimum_quantity: 0
   default_quantity: 1

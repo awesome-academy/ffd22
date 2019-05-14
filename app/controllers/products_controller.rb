@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!,
     only: %i(new create edit update destroy)
   before_action :load_product, except: %i(create new index)
-  before_action :load_list_products, only: :index
   authorize_resource
 
   def show
@@ -11,7 +10,9 @@ class ProductsController < ApplicationController
   end
 
   def index
-    flash.now[:danger] = t ".no_product" if @products.blank?
+    @search = Product.ransack params[:q]
+    @products = @search.result.includes(:category).paginate page: params[:page],
+      per_page: Settings.per_page.products
   end
 
   def new
@@ -60,25 +61,5 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit :name, :image, :price, :information,
       :classify, :quantity, :category_id
-  end
-
-  def load_list_products
-    @products = if filter_params.size.positive?
-                  Product.filter_products(filter_params)
-                         .order_desc.paginate page: params[:page],
-                           per_page: Settings.per_page.products
-                else
-                  Product.order_desc.paginate page: params[:page],
-                    per_page: Settings.per_page.products
-                end
-  end
-
-  def filter_params
-    filter_params = params.permit(:classify, :category_id).to_h
-    if params[:price].present?
-      price = params[:price].split("..")
-      filter_params[:price] = price[0]..price[1]
-    end
-    filter_params.reject{|_k, v| v.blank?}
   end
 end
