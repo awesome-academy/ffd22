@@ -4,9 +4,19 @@
     <%= link_to t("foods_and_drinks"),
       root_path, id: "logo", class: "navbar-brand" %>
 
+      <%= search_form_for @q, class: "mx-auto" do |f| %>
+        <div class="input-group">
+          <%= f.search_field :name_cont, placeholder: t("search"),
+            class: "form-control" %>
+          <div class="input-group-append">
+            <%= f.submit t("search"), class: "btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+
+
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-
         <li class="nav-item">
           <%= link_to carts_path, class: "btn btn-info" do %>
             <%= t "cart" %>

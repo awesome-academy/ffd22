@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   include CartsHelper
   before_action :set_locale
+  before_action :set_global_search_variable
+
+  def set_global_search_variable
+    @q = Product.search(params[:q])
+  end
 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|

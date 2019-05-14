@@ -17,6 +17,7 @@ en:
   you_sure: "You sure?"
   cart: "Cart"
   filter: "Filter"
+  search: "Search"
   static_pages:
     home:
       title: "Home"
@@ -59,7 +60,7 @@ en:
       user_not_found: "User not found"
     index:
       title: "All user"
-      heading: "All user"
+      name_or_phone: "Name or phone number"
     edit:
       title: "Edit user"
       update_your_profile: "Update your profile"
@@ -79,9 +80,6 @@ en:
     create:
       welcome: "Welcome to the Sample App!"
       check_email: "Please check your email to activate your account."
-    index:
-      title: "All user"
-      heading: "All user"
     load_user:
       user_not_found: "User not found"
     show:
@@ -173,6 +171,7 @@ en:
       max: "Maximum"
       no_product: "There are no products"
       categories: "Categories"
+      name_or_information: "Name or information"
     update:
       product_updated: "Product updated"
     destroy:

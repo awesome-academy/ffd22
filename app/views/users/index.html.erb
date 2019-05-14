@@ -1,5 +1,18 @@
 <% provide(:title, t(".title")) %>
-<h1 class="text-center"><%= t ".heading" %></h1>
+<h1 class="text-center"><%= t ".title" %></h1>
+
+
+<%= search_form_for @q do |f| %>
+  <div class="row">
+    <div class="field form-group col-4">
+      <%= f.search_field :name_or_phone_cont, placeholder: t(".name_or_phone"),
+        class: "form-control" %>
+    </div>
+    <div class="actions form-group col">
+      <%= f.submit t("search"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
 
 <%= will_paginate(@users,
   renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>

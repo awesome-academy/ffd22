@@ -8,4 +8,8 @@ module CategoriesHelper
   def collect_categories
     Category.all.map{|c| [c.name, c.id]}
   end
+
+  def collect_categories_name
+    Category.all.map{|c| [c.name, c.name]}
+  end
 end
