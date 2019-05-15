@@ -32,6 +32,8 @@ gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
+  gem "rspec-rails"
   gem "sqlite3", "1.3.13"
 end
 
@@ -48,6 +50,8 @@ group :test do
   gem "minitest", "5.10.3"
   gem "minitest-reporters", "1.1.14"
   gem "rails-controller-testing", "1.0.2"
+  gem "rspec-collection_matchers"
+  gem "shoulda-matchers"
 end
 
 group :production do
